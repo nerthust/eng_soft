@@ -1,0 +1,54 @@
+use crate::army::army::Army;
+use crate::castle::castle::Castle;
+use crate::king::king::King;
+use crate::factory::kingdom_factory::Kingdom_factory;
+use std::sync::{Arc, Mutex};
+
+pub trait Get_army {
+    fn get_army(&self) -> Option<Box<Arc<dyn Army>>>;
+}
+
+impl Get_army for App {
+    fn get_army(&self) -> Option<Box<Arc<dyn Army>>> {
+        let army = self.army;
+        match army {
+            Some(am) => Some(Box::new(Arc::new(am))),
+            None => None,
+        }
+    }
+}
+
+struct App {
+    army: Option<Box<dyn Army>>,
+    castle: Option<Box<dyn Castle>>,
+    king: Option<Box<dyn King>>,
+}
+
+impl App {
+    pub fn new() -> App {
+        App{
+            army: None,
+            castle: None,
+            king: None,
+        }
+    }
+
+    pub fn create_kingdom(&mut self, king_fac: &dyn Kingdom_factory) {
+        self.army = Some(king_fac.create_army());
+        self.castle = Some(king_fac.create_castle());
+        self.king = Some(king_fac.create_king());
+    }
+
+
+    pub fn set_army(&mut self, army: Option<Box<dyn Army>>) {
+        self.army = army;
+    }
+
+    pub fn set_castle(&mut self, castle: Option<Box<dyn Castle>>) {
+        self.castle = castle;
+    }
+
+    pub fn set_king(&mut self, king: Option<Box<dyn King>>) {
+        self.king = king;
+    }
+}
