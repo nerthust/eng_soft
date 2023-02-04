@@ -1,7 +1,7 @@
 use std::sync::{Arc, Mutex};
 use crate::army::army::Army;
 
-#[derive(Default)]
+#[derive(Default, Debug)]
 pub struct OrcArmy {
     pub(crate) description: Mutex<String>,
 }

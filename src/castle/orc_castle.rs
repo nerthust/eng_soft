@@ -1,7 +1,6 @@
 use std::sync::{Arc, Mutex};
 use crate::castle::castle::Castle;
 
-
 #[derive(Default, Debug)]
 pub struct OrcCastle {
     pub(crate) description: Mutex<String>,
@@ -10,7 +9,7 @@ pub struct OrcCastle {
 thread_local! {
     static ORC_CASTLE_POOL: Arc<OrcCastle> = Arc::new(
         OrcCastle {
-            description: Mutex::new("Orc Kingdom' in the northern most reaches of Europe".to_string()),
+            description: Mutex::new("orc, a mythical creature of horrid form or aspect.".to_string()),
         }
     );
 }

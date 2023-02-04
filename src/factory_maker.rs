@@ -1,8 +1,8 @@
 use crate::kingdom_type::KingdomType;
 use crate::factory::{
     kingdom_factory::KingdomFactory,
-    elf_kingdom_factory::ElfKingdomFactory,
     orc_kingdom_factory::OrcKingdomFactory,
+    elf_kingdom_factory::ElfKingdomFactory,
 };
 
 pub fn make_factory(k_type: KingdomType) -> Box<dyn KingdomFactory> {

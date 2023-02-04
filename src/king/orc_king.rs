@@ -1,7 +1,6 @@
 use std::sync::{Arc, Mutex};
 use crate::king::king::King;
 
-
 #[derive(Default, Debug)]
 pub struct OrcKing {
     pub(crate) description: Mutex<String>,

@@ -1,13 +1,14 @@
 use std::sync::Arc;
-use crate::factory::kingdom_factory::KingdomFactory;
+
 use crate::army::army::Army;
 use crate::castle::castle::Castle;
 use crate::king::king::King;
-use crate::king::orc_king::OrcKing;
-use crate::castle::orc_castle::OrcCastle;
 use crate::army::orc_army::OrcArmy;
+use crate::castle::orc_castle::OrcCastle;
+use crate::king::orc_king::OrcKing;
+use crate::factory::kingdom_factory::KingdomFactory;
 
-#[derive(Default)]
+#[derive(Default, Debug)]
 pub struct OrcKingdomFactory;
 
 thread_local! {
